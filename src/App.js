@@ -14,6 +14,7 @@ class App extends React.Component {
 		};
 		this.addItem = this.addItem.bind(this);
 		this.deleteItem = this.deleteItem.bind(this);
+		this.editItem = this.editItem.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 	};
 
@@ -34,7 +35,7 @@ class App extends React.Component {
 			items: this.state.items.map(i => {
 				if(i.id === id)
 					return {
-						id, name: i.name, quanity: i.quantity, carted: !i.carted
+						id, name: i.name, quantity: i.quantity, carted: !i.carted
 					};
 				return i;
 			}
@@ -54,7 +55,10 @@ class App extends React.Component {
 	editItem(item) {
 		this.setState({
 			items: this.state.items.map( i => {
-				if(i.id === item.id) return item;
+				if(i.id === item.id) 
+					return {
+						id: item.id, name: item.name, quantity: item.quantity
+					};
 				return i;
 			})
 		});
