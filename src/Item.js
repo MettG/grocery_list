@@ -35,6 +35,9 @@ class Item extends React.Component {
 				<button onClick={() => {
 					this.editClicked();
 				}}>Edit</button>
+				{
+					//Form for edit
+				}
 				<form
 					onSubmit={this.handleSubmit}
 					style={this.state.clicked? {display:"block"} : {display:"none"}}
